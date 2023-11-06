@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "311495489715",
+    "project_id": "footballscore-86f4b",
+    "storage_bucket": "footballscore-86f4b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:311495489715:android:538c61b13fa0744f4f58c6",
+        "android_client_info": {
+          "package_name": "uk.ac.tees.w9623063.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUbhbMc9kW7ewwe9yx9tSIa_6P4Tufcek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
