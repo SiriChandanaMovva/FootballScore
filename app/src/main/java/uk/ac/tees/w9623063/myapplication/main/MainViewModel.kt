@@ -2,7 +2,6 @@ package uk.ac.tees.w9623063.myapplication.presentation.main
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import uk.ac.tees.w9623063.myapplication.Singletons
@@ -16,15 +15,12 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import java.util.concurrent.locks.ReentrantLock
 
 class MainViewModel(
     application: Application
 ) : ViewModel() {
     private val _isLoading = MutableStateFlow(true)
     val isLoading = _isLoading.asStateFlow()
-//    private val _uiState = MutableStateFlow<List<Result>>(emptyList())
-//    val uiState: StateFlow<List<Result>> = _uiState
     private val networkRepository = Singletons.retrofitRepository
     private val roomRepository: LiveScoreRepository
     private var allData: List<Result>? = null
@@ -76,7 +72,7 @@ class MainViewModel(
 
     private suspend fun getLiveScoreListAsync() =
         viewModelScope.async {
-            networkRepository.getLiveScore().body()?.result
+            networkRepository.getFixtures().body()?.result
         }
 
 

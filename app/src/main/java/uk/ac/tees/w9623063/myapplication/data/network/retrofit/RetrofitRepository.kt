@@ -6,6 +6,7 @@ import retrofit2.Response
 interface
 RetrofitRepository {
 
-    suspend fun getLiveScore(): Response<LiveScore>
 
+    suspend fun getFixtures(): Response<LiveScore>
+    suspend fun getLiveScores(): Response<LiveScore>
 }
