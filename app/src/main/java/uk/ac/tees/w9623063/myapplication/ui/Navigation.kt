@@ -1,6 +1,7 @@
 package uk.ac.tees.w9623063.myapplication.ui
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -13,6 +14,7 @@ import androidx.navigation.navArgument
 import androidx.navigation.navigation
 import uk.ac.tees.w9623063.myapplication.detail.DetailScreen
 import uk.ac.tees.w9623063.myapplication.detail.DetailViewModel
+import uk.ac.tees.w9623063.myapplication.domain.network.model.Result
 import uk.ac.tees.w9623063.myapplication.home.Home
 import uk.ac.tees.w9623063.myapplication.home.HomeViewModel
 import uk.ac.tees.w9623063.myapplication.login.LoginScreen

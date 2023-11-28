@@ -222,7 +222,7 @@ fun SignUpScreen(
 
         LaunchedEffect(key1 = loginViewModel?.hasUser){
             if(loginViewModel?.hasUser == true){
-                onNavToHomePage
+                onNavToHomePage.invoke()
             }
         }
     }
