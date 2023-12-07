@@ -1,12 +1,9 @@
-package uk.ac.tees.w9623063.myapplication.presentation.main
+package uk.ac.tees.w9623063.myapplication.main
 
 import android.app.Application
-import android.os.Bundle
-import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.SavedStateViewModelFactory
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.savedstate.SavedStateRegistryOwner
+import uk.ac.tees.w9623063.myapplication.presentation.main.MainViewModel
 
 class MainViewModelFactory(
     private val application: Application,

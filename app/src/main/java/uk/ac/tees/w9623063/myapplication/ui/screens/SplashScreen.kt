@@ -24,6 +24,8 @@ import androidx.navigation.NavController
 import uk.ac.tees.w9623063.myapplication.utils.Screen
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.StateFlow
+import uk.ac.tees.w9623063.myapplication.ui.LoginRoutes
+import uk.ac.tees.w9623063.myapplication.ui.NestedRoutes
 
 @Composable
 fun SplashScreen(
@@ -45,11 +47,17 @@ fun SplashScreen(
             )
         )
         if (!isLoading.value)
-            navController.navigate(Screen.MainScreen.route) {
-                popUpTo(Screen.SplashScreen.route) {
+            navController.navigate(LoginRoutes.SignIn.name){
+                launchSingleTop = true
+                popUpTo(Screen.SplashScreen.route){
                     inclusive = true
                 }
             }
+/*            navController.navigate(Screen.MainScreen.route) {
+                popUpTo(Screen.SplashScreen.route) {
+                    inclusive = true
+                }
+            }*/
     }
 
     Box(

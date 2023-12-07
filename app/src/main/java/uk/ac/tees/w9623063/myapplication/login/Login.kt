@@ -182,7 +182,7 @@ fun SignUpScreen(
                 )
             },
             label = {
-                Text(text = "Passsword")
+                Text(text = "Password")
             },
             visualTransformation = PasswordVisualTransformation(),
             isError = isError
@@ -203,7 +203,9 @@ fun SignUpScreen(
             isError = isError
         )
         
-        Button(onClick = { loginViewModel?.createUser(context) }) {
+        Button(onClick = { loginViewModel?.createUser(context)
+            onNavToLoginPage.invoke()
+        }) {
             Text(text = "Sign Up")
         }
         Spacer(modifier = Modifier.size(16.dp))

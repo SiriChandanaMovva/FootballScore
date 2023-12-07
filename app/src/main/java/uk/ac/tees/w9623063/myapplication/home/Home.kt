@@ -113,38 +113,7 @@ fun Home(
             )
             Spacer(modifier = Modifier.size(4.dp))
 
-            /*when(homeUiState.scoresList){
-                is Resources.Loading ->{
-                    CircularProgressIndicator(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .wrapContentSize(align = Alignment.Center)
-                    )
-                }
-                is Resources.Success -> {
-                    LazyVerticalGrid(columns = GridCells.Fixed(2),
-                        contentPadding = PaddingValues(16.dp)
-                    ){
-                        items(
-                            homeUiState.scoresList.data ?: emptyList()
-                        ){ note ->
-                            NoteItem(scores = note,
-                                onLongClick = {
-                                    openDialog = true
-                                    selectedNote = note
-                                },
-                                ) {
-                                onNoteClick.invoke(note.documentId)
-                            }
-                        }
-                    }
-                }
-                else -> {
-                    Text(text = homeUiState.scoresList.throwable?.localizedMessage ?: "Unknown Error",
-                        color = Color.Red
-                    )
-                }
-            }*/
+
         }
 
     }
@@ -155,77 +124,4 @@ fun Home(
         }
     }
 
-
-}
-
-@Composable
-fun NoteItem(
-    scores:Scores,
-    onLongClick:() -> Unit,
-    onClick:() -> Unit
-){
-    Card(
-        modifier = Modifier
-            .combinedClickable(
-                onLongClick = { onLongClick.invoke() },
-                onClick = { onClick.invoke() },
-            )
-            .padding(8.dp)
-            .fillMaxWidth(),
-        colors = CardDefaults.cardColors(NoteColors.colors[scores.colorIndex])
-
-    ) {
-        MaterialTheme{
-            Column {
-                Text(text = scores.title,
-                    style = MaterialTheme.typography.bodySmall,
-                    fontWeight = FontWeight.Bold,
-                    maxLines = 1,
-                    overflow = TextOverflow.Clip,
-                    modifier = Modifier.padding(4.dp)
-                )
-                Spacer(modifier = Modifier.size(4.dp))
-                CompositionLocalProvider(LocalContentColor provides MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f))
-                {
-                    Text(
-                        text = scores.description,
-                        style = MaterialTheme.typography.bodySmall,
-                        overflow = TextOverflow.Ellipsis,
-                        modifier = Modifier.padding(4.dp),
-                        maxLines = 4,
-                    )
-                }
-                Spacer(modifier = Modifier.size(4.dp))
-
-                CompositionLocalProvider(LocalContentColor provides MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f))
-                {
-                    Text(
-                        text = formatDate(scores.timestamp),
-                        style = MaterialTheme.typography.bodySmall,
-                        overflow = TextOverflow.Ellipsis,
-                        modifier = Modifier
-                            .padding(4.dp)
-                            .align(Alignment.End),
-                        maxLines = 4,
-                    )
-                }
-            }
-        }
-
-    }
-}
-
-private fun formatDate(timestamp: Timestamp):String{
-    val sdf = SimpleDateFormat("MM-dd-yy hh:mm", Locale.getDefault())
-    return sdf.format(timestamp.toDate())
-}
-
-@Preview
-@Composable
-fun PrevHomeScreen(){
-    FootballScoreTheme {
-        Home(homeViewModel = null, onNoteClick = {}, navToDetailPage = { /*TODO*/ }) {
-
-        }
-    }
 }

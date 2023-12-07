@@ -15,13 +15,17 @@ import uk.ac.tees.w9623063.myapplication.ui.screens.SplashScreen
 import uk.ac.tees.w9623063.myapplication.ui.screens.WebScreen
 import uk.ac.tees.w9623063.myapplication.utils.Screen
 import uk.ac.tees.w9623063.myapplication.domain.network.model.Result
+import uk.ac.tees.w9623063.myapplication.login.LoginScreen
+import uk.ac.tees.w9623063.myapplication.login.LoginViewModel
+import uk.ac.tees.w9623063.myapplication.login.SignUpScreen
 
 @Composable
 fun Navigation(
     list: State<List<Result>?>,
     isLoading: State<Boolean>,
     onRefresh: () -> Unit,
-    navController: NavHostController
+    navController: NavHostController,
+    loginViewModel: LoginViewModel
 ) {
     NavHost(navController = navController, startDestination = Screen.SplashScreen.route) {
         composable(route = Screen.SplashScreen.route) {
@@ -29,6 +33,39 @@ fun Navigation(
                 navController = navController,
                 isLoading
             )
+        }
+        composable(route = LoginRoutes.SignIn.name){
+            LoginScreen(onNavToHomePage = {
+                navController.navigate(Screen.MainScreen.route){
+                    launchSingleTop = true
+                    popUpTo(route = LoginRoutes.SignIn.name){
+                        inclusive = true
+                    }
+                }
+            },
+                loginViewModel = loginViewModel
+            ) {
+                navController.navigate(LoginRoutes.SignUp.name){
+                    launchSingleTop = true
+                    popUpTo(LoginRoutes.SignUp.name){
+                        inclusive = true
+                    }
+                }
+            }
+        }
+
+        composable(route = LoginRoutes.SignUp.name){
+            SignUpScreen(onNavToHomePage = {
+                navController.navigate(NestedRoutes.Main.name){
+                    popUpTo(LoginRoutes.SignUp.name){
+                        inclusive = true
+                    }
+                }
+            },
+                loginViewModel = loginViewModel
+            ) {
+                navController.navigate(LoginRoutes.SignIn.name)
+            }
         }
         composable(
             route = Screen.MainScreen.route

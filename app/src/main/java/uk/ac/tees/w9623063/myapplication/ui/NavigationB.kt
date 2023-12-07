@@ -121,39 +121,8 @@ fun NavGraphBuilder.authGraph(
                 navController.navigate(LoginRoutes.SignIn.name)
             }
         }
-
     }
 }
-
-fun NavGraphBuilder.homeGraph(
-    navController: NavHostController,
-    detailViewModel: DetailViewModel,
-){
-    navigation(
-        startDestination = HomeRoutes.Home.name,
-        route = NestedRoutes.Main.name,
-    ){
-        composable(HomeRoutes.Home.name){
-
-        }
-
-        composable(
-            route = HomeRoutes.Detail.name + "?id={id}",
-            arguments = listOf(navArgument("id") {
-                type = NavType.StringType
-                defaultValue = ""
-            })
-        ){ entry ->
-            DetailScreen(
-                detailViewModel = detailViewModel,
-                noteId = entry.arguments?.getString("id") as String,
-            ) {
-                navController.navigateUp()
-            }
-        }
-    }
-}
-
 
 
 

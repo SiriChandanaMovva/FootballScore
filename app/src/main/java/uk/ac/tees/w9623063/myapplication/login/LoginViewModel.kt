@@ -63,10 +63,10 @@ class LoginViewModel(
                 loginUiState.passwordSignUp
             ){ isSuccessful ->
                 if (isSuccessful){
-                    Toast.makeText(context,"success Login",Toast.LENGTH_LONG).show()
+                    Toast.makeText(context,"Created account successfully",Toast.LENGTH_LONG).show()
                     loginUiState = loginUiState.copy(isSuccessLogin = true)
                 }else{
-                    Toast.makeText(context,"Failed Login", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context,"Failed to create account", Toast.LENGTH_LONG).show()
                     loginUiState = loginUiState.copy(isSuccessLogin = false)
                 }
             }

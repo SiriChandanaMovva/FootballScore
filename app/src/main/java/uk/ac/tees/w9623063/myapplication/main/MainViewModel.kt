@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.firebase.auth.FirebaseAuth
 import uk.ac.tees.w9623063.myapplication.Singletons
 import uk.ac.tees.w9623063.myapplication.data.room.MainDatabase
 import uk.ac.tees.w9623063.myapplication.domain.network.model.Result
@@ -80,4 +81,7 @@ class MainViewModel(
         private const val LIST_KEY = "listKey"
     }
 
+    fun singOutFromFirebase(){
+        FirebaseAuth.getInstance().signOut()
+    }
 }
