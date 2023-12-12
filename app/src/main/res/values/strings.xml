@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">FootballScore</string>
-    <string name="hello">Hello</string>
-    <string name="soccer_ball">soccer_ball</string>
-    <string name="home_team_logo">home_team_logo</string>
-    <string name="league_logo">league_logo</string>
-    <string name="away_team_logo">away_team_logo</string>
-    <string name="open">OPEN</string>
-</resources>
