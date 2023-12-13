@@ -22,10 +22,7 @@ class HomeViewModel(
     fun loadNotes(){
 
     }
-
-
     fun signOut() = repository.signOut()
-
 }
 
 data class HomeUiState(
