@@ -12,13 +12,11 @@ abstract class MainDatabase : RoomDatabase() {
     abstract fun liveScoreDao(): LiveScoreDao
 
     companion object {
-
         fun getDB(context: Context): MainDatabase {
             return Room.databaseBuilder(
                 context.applicationContext,
                 MainDatabase::class.java, "main-db"
             ).build()
         }
-
     }
 }
