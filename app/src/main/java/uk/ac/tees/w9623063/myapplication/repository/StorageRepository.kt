@@ -104,9 +104,6 @@ class StorageRepository() {
     }
 
     fun signOut() = Firebase.auth.signOut()
-
-
-
 }
 
 sealed class Resources<T>(
