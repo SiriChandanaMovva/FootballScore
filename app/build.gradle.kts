@@ -80,7 +80,6 @@ dependencies {
 
     implementation("androidx.navigation:navigation-compose:2.5.3")
 
-
     //LiveData && ViewModel
     implementation("androidx.compose.runtime:runtime-livedata:1.5.4")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
@@ -106,7 +105,6 @@ dependencies {
     //OkHttp3
     implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
     implementation("com.squareup.okhttp3:okhttp:4.10.0")
-
     //OneSignal
     implementation("com.onesignal:OneSignal:4.8.5")
 }
